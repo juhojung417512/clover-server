@@ -3,6 +3,10 @@ module.exports = function(app, conn){
         return res.json({result : true});
     })
     app.post('/api/login', async (req,res)=>{
+        console.log(req.body);
+        console.log(req);
+        console.log(req.body.id);
+        console.log(req.body.pw);
         var id = req.body.id;
         var pw = req.body.pw;
         let user = await conn.query("SELECT * FROM user WHERE user_id = ? AND pw = ?", [id, pw]);
