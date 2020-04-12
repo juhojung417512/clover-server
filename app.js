@@ -6,8 +6,8 @@ const MYSQL = require("./mysql_conn");
 const config = require("./config.json");
 const conn = new MYSQL(config.host, config.user, config.password, config.database);
 
-app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
 
 const router = require("./router")(app,conn);
 
